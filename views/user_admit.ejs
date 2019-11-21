@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/stylesheets/user_admit.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="">TODO</a></li>
+                <li><a href="" class="owner"><%= owner %></a></li>
+                <li><form action="/signout" method = "get"> 
+                    <input type="submit" value="로그아웃"/>
+                </form></li>
+            </ul>
+            <div class="right">menu</div>
+        </nav>
+        
+        <section class="search">
+            <input type="text" class="friend" placeholder="친구 아이디를 입력하세요"/>
+            <input type="button" class="admit" value="초대"/>
+        </section>
+
+        <script type="text/javascript" src="/javascripts/user_admit.js"></script></body>
+
+    </body>
+</html>

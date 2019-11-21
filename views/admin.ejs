@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8" lang="ko">
+    <link rel="stylesheet" href="/stylesheets/admin.css">
+</head>
+
+<body>
+    <header>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">TODO</a></li>
+            <li><a href="" class="owner"><%= owner %></a></li>
+            <input type="button" class="projects" value="프로젝트 목록"/>
+            <form action="/signout" method = "get"> 
+                <input type="submit" value="로그아웃"/>
+            </form>
+        </ul>
+    </nav>
+    <section class="main">
+            <% for(let i = 0; i<users.length; i++){%>
+                <section class="row">
+                <div><%=users[i].user_id%></div>
+                <% if (users[i].is_admin) {%>
+                <div>admin</div>
+                <%} else { %>
+                <div>user</div>
+                <% } %>
+                <div><input type="checkbox" name='<%=users[i].user_id%>'/></div>
+                </section>
+            <%}%>
+            <input type="button" class="update_privilege" value="권한 부여"/>
+            <input type="button" class="delete_privilege"value="권한 취소"/>
+    </section>
+    <script type="text/javascript" src="/javascripts/admin.js"></script></body>
+</body>
+
+</html>
+
+
+

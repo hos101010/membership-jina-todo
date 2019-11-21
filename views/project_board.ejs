@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/stylesheets/project_board.css">
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="">TODO</a></li>
+                <li><a href="" class="owner"><%= owner %></a></li>
+                <li><form action="/signout" method = "get"> 
+                    <input type="submit" value="로그아웃"/>
+                </form></li>
+            </ul>
+            <div class="right">menu</div>
+        </nav>
+        <div><span class="board_owner"><%= board_owner %></span>'s project</div>
+
+        <section class="board">
+        <% for (let i=0; i< category_list.length; i++) {%>
+            <article>
+                <div class="category"><%= category_list[i].category_name%></div>
+                <input type="text" class="todo_content"/>
+                <input type="file" class="todo_attached"/>
+                <input type="button" class="add_todo" value="add"/>
+
+                <% for (let j=0; j< todo_list.length; j++) {%>
+                    <% if (todo_list[j].category_id == category_list[i].category_id) {%>
+                        <div class="todo"><%= todo_list[j].content %></div>
+                    <% } %>
+                <% } %>
+            </article>
+        <% } %>
+        </section>
+
+        <script type="text/javascript" src="/javascripts/project_board.js"></script></body>
+
+    </body>
+</html>
